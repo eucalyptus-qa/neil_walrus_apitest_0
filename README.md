@@ -1,3 +1,46 @@
+neil_walrus_apitest_0
+=====================
+
+## Description
+
+Ensure the API compatibility between S3 and Walrus
+
+## Procedure
+
+1. Create a bucket using RightAws::S3::Bucket API in a particular location 'US'
+2. Create 50 objects with 'test_object_' as a prefix
+3. Check that the bucket.keys('prefix' ⇒ 'test_') returns 50 keys
+4. [FAIL] Not the right number of objects returned
+5. [IMPROVE]Should also add different objects to make sure the entire bucket isnt being returned
+6. Delete objects
+7. Delete buckets
+8. Create random bucket name string
+9. Create a bucket using RightAws::S3::Bucket API in a particular location 'US'
+10. Create an array of 25 objects and add them to the bucket
+11. Check that the bucket.keys('max_keys' ⇒ max_keys) call returns only max_keys
+12. [FAIL] Number of keys returned was not equal to max_keys
+13. Delete all objects in the array
+14. Delete the bucket
+15. Create a bucket using RightAws::S3::Bucket API in a particular location 'US'
+16. Create 10 objects with key prefix 'test_object_'
+17. Use marker 't' and make sure all the keys are present
+18. [FAIL] Keys returned were not equal to 10
+19. Use marker 'z' and make sure none of the keys are present
+20. [FAIL] More than 0 keys were returned
+21. [IMPROVE] Add objects with keys in the a-t range and use a as marker
+22. Delete objects
+23. Delete buckets
+24. Create a bucket using RightAws::S3::Bucket API in a particular location 'US'
+25. Add objects with keys 'mydir-help-man1' 'mydir-help-man2' 'mydir-help-man3' 'mydir-test1'
+26. Check that prefix ⇒ 'mydir-' and delimiter ⇒ '-' returns 1 key
+27. [FAIL] More than 1 key
+28. [IMPROVE] check the keys to make sure it is the right one
+29. [IMPROVE] change the delimiter to something else try again
+30. Delete objects
+31. Delete Bucket
+
+
+
 # Eucalyptus Testunit Framework
 
 Eucalyptus Testunit Framework is designed to run a list of test scripts written by Eucalyptus developers.
